@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         RA_DownloadAllBadges
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Downloads all badges on game page into subfolder and names them accordingly.
+// @version      0.2
+// @description  Downloads all badges from game page into subfolder and renames them accordingly.
 // @author       Inirdin
 // @match        https://retroachievements.org/game/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=retroachievements.org
@@ -19,9 +19,10 @@ function downloadAllBadges() {
         var pattern = /^.*(?=( \())/gm;
         var cleanName = names[i].innerText.match(pattern);
         var number = i+1;
+        var badgeurl = badges[i].src.replace(/_lock.png/g, ".png");
         var newName = game[0].innerText + "/" + number + " - " + cleanName + ".png";
         var arg = {
-            url: badges[i].src,
+            url: badgeurl,
             name: newName,
             conflictAction: "overwrite"
         };
@@ -42,5 +43,5 @@ function addDownloadBtn() {
 }
 
 addDownloadBtn();
-console.log(badges);
-console.log(names);
+//console.log(badges);
+//console.log(names);
