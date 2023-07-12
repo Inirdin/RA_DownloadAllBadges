@@ -1,5 +1,5 @@
 # RA_DownloadAllBadges
-Tampermonkey script that adds "download all badges" button to the game page on RetroAchievements.org
+[Tampermonkey](https://www.tampermonkey.net/index.php) script that adds "download all badges" button to every game page on [RetroAchievements.org](https://retroachievements.org/)
 
 - For correct ordering use default or "Normal ^" sorting of achievements. 
 - Images are placed in subfolder named after the game in default download directory. 
